@@ -5,11 +5,13 @@ ini_set('display_errors', 'On');
 
 include '../vendor/autoload.php';
 
-use Inc\EntryPoint;
+use Inc\Api;
 use Inc\Helper;
 
 $cn = trim($_GET['cn']) ?? '';
 
-$entryPoint = new EntryPoint($cn);
+$entryPoint = new Api;
+
+$entryPoint->setCardId($cn);
 
 echo Helper::jsonOutput($entryPoint->result());

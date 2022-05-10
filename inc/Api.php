@@ -5,13 +5,13 @@ namespace Inc;
 use function _\map;
 
 
-class EntryPoint {
+class Api {
 
     protected $db;
 
     protected $cardId;
 
-    public function __construct(string $cardId)
+    public function __construct(string $cardId = null)
     {
 
          $this->db = new \Nette\Database\Connection(
@@ -22,6 +22,13 @@ class EntryPoint {
 
         $this->cardId = $cardId;
         
+    }
+
+    public function setCardId(string $cardId)
+    {
+
+        $this->cardId = $cardId;
+
     }
 
 
